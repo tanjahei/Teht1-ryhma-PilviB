@@ -10,6 +10,8 @@ Anniina Lehto, Valtteri Peltoluhta ja Tanja Heikkilä
 
 
 # Docker-based File Transfer System
+- Repositorio Githubissa:
+https://github.com/tanjahei/Teht1-ryhma-PilviB.git
 
 ## Ympäristön kuvaus
 Tämä ympäristö sisältää kaksi Docker-konttia:
