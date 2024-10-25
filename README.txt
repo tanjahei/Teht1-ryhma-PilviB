@@ -6,6 +6,8 @@ U |  _"\ u \| ___"|/U  /"\  u |  _"\ U|' \/ '|u\| ___"|/
   //   \\_  <<   >>  \\    >>  |||_  <<,-,,-.   <<   >>  
  (__)  (__)(__) (__)(__)  (__)(__)_)  (./  \.) (__) (__) 
 
+Anniina Lehto, Valtteri Peltoluhta ja Tanja Heikkilä
+
 
 # Docker-based File Transfer System
 
@@ -13,7 +15,10 @@ U |  _"\ u \| ___"|/U  /"\  u |  _"\ U|' \/ '|u\| ___"|/
 Tämä ympäristö sisältää kaksi Docker-konttia:
 - **server**: Ajaa Flask-pohjaista palvelinta, joka luo 1KB kokoisen satunnaisen tiedoston ja tarjoaa sen asiakasohjelmalle.
 - **client**: Yhdistää palvelimeen, lataa tiedoston ja tarkistaa checksumin oikeellisuuden.
-- Tiedostojen muodostaminen j
+
+- Sovellukset ovat konfiguroitu niin, että ne käynnistyvät Python-koodilla automaattisesti kontin käynnistyessä.
+- Voluumit ja verkko säilyvät myös konttien uudelleenkäynnistyksen jälkeen.
+
 
 ## Asennusohjeet
 
@@ -34,12 +39,18 @@ Tämä ympäristö sisältää kaksi Docker-konttia:
     docker network create app-network
     ```
 
-4. Käynnistä palvelin: (anna suoritusoikeudet: sudo chmod +x run_client.sh sudo chmod +x run_server.sh )
+4.1 Anna tarvittaessa suoritusoikeudet:
+    ```bash
+    sudo chmod +x run_client.sh
+    sudo chmod +x run_server.sh
+    ```
+
+4.2 Käynnistä palvelin-kontti: 
     ```bash
     ./run_server.sh
     ```
 
-5. Käynnistä asiakas:
+5. Käynnistä asiakas-kontti:
     ```bash
     ./run_client.sh
     ```
@@ -59,7 +70,3 @@ Tämä ympäristö sisältää kaksi Docker-konttia:
     ```
 
 - Asiakaskontti tulostaa, jos checksum täsmää. Tiedosto uudelleenkirjoitetaan joka samannimiseksi tiedostoksi.
-
-## Huomioitavaa
-- Sovellukset ovat konfiguroitu niin, että ne käynnistyvät automaattisesti kontin käynnistyessä.
-- Voluumit ja verkko säilyvät myös konttien uudelleenkäynnistyksen jälkeen.
